@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Target: MSM Queries</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  </head>
+
+  <body>
+
+    <h1>
+  List of all movies
+</h1>
+
+<hr>
+
+<table border="1">
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Image
+    </th>
+
+    <th>
+      Title
+    </th>
+
+    <th>
+      Year
+    </th>
+
+    <th>
+      Director
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% Movie.all.each do |row| %>
+    <tr>
+      <td>
+        <%= row.id %>
+      </td>
+
+      <td>
+        <img src=<%= row.image %>" style="width:250px;">
+      </td>
+
+      <td>
+        <%= row.title %>
+      </td>
+
+      <td>
+        <%= row.year%>
+      </td>
+
+      <td>
+        <%= Director.where({ :id => row.director_id}).at(0).name %>
+        </a>
+      </td>
+
+      <td>
+        <a href="/movies/<%= row.id %>">
+          Show details
+        </a>
+      </td>
+    </tr>
+  <% end %>
+</table>
+  </body>
+</html>

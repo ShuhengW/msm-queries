@@ -1,5 +1,15 @@
 class DirectorsController < ApplicationController
 
+  def alldirectors 
+
+    render({ :template => "director_templates/alldirectors" })
+  
+  end
+
+  def allmovies
+    render({ :template => "director_templates/allmovies" })
+  end
+  
   def youngest
     @the_youngest_director = Director.where.not({ :dob => nil }).order({ :dob => :asc }).at(0)
     render({ :template => "director_templates/youngest" })
