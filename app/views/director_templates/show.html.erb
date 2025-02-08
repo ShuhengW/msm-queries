@@ -94,23 +94,23 @@
   </tr>
 
 
-  
 
+<% Movie.where({ :director_id => @the_director.id}).each do |row| %>
   <tr>
     <td>
-      <%=Movie.where({ :director_id => @the_director.id}).at(0).id%>
+      <%= row.id %>
     </td>
 
     <td>
-      <img src= <%= Movie.where({ :director_id => @the_director.id}).at(0).image%>" style="width:250px;">
+      <img src= <%= row.image %>" style="width:250px;">
     </td>
 
     <td>
-      <%= Movie.where({ :director_id => @the_director.id}).at(0).title %>
+      <%= row.title %>
     </td>
 
     <td>
-      <%= Movie.where({ :director_id => @the_director.id}).at(0).year %>
+      <%= row.year %>
     </td>
 
     <td>
@@ -118,11 +118,13 @@
     </td>
 
     <td>
-      <a href="/movies/<%= Movie.where({ :director_id => @the_director.id}).at(0).id %>">
+      <a href="/movies/<%= row.id %>">
         Show details
       </a>
     </td>
   </tr>
+<% end %>
+  
 </table>
   </body>
 </html>
