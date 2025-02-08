@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Target: MSM Queries</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  </head>
+
+  <body>
+    <nav>
+      <a href="/">
+        Home
+      </a>
+    </nav>
+
+    <h1>Eldest director</h1>
+
+<p>The eldest director in our dataset right now is <a href="/directors/<%= @the_youngest_director.id %>"><%= @the_youngest_director.name%></a>, born on <%= @the_youngest_director.dob.strftime("%B %d, %Y") %>.</p>
+
+  </body>
+</html>
