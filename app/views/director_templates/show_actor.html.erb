@@ -90,29 +90,31 @@
   </tr>
 
 
+ <% Character.where({:actor_id => @the_actor.id}).each do |row| %>
     <tr>
       <td>
-       <%= Movie.where({:id =>(Character.where({:actor_id => @the_actor.id}).at(0).movie_id)}).at(0).title%>
+        <%= Movie.where({:id => row.movie_id }).at(0).title %>
       </td>
 
       <td>
-        <%= Movie.where({:id =>(Character.where({:actor_id => @the_actor.id}).at(0).movie_id)}).at(0).year%>
+        <%= Movie.where({:id => row.movie_id }).at(0).year %>
       </td>
 
       <td>
-        <%= Director.where({:id => (Movie.where({:id =>(Character.where({:actor_id => @the_actor.id}).at(0).movie_id)}).at(0).director_id)}).at(0).name%>
+        <%= Director.where({:id => (Movie.where({:id => row.movie_id }).at(0).director_id) }).at(0).name   %>
       </td>
 
       <td>
-        <%= Character.where({:actor_id => @the_actor.id}).at(0).name %>
+        <%= row.name %>
       </td>
 
       <td>
-        <a href="/movies/<%= Movie.where({:id =>(Character.where({:actor_id => @the_actor.id}).at(0).movie_id)}).at(0).id%>">
+        <a href="/movies/<%= Movie.where({:id => row.movie_id }).at(0).id %>">
           Show details
         </a>
       </td>
     </tr>
+  <% end %>
 </table>
 
   </body>
