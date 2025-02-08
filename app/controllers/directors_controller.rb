@@ -30,4 +30,10 @@ class DirectorsController < ApplicationController
     @the_actor = Actor.where({ :id => the_id }).at(0)
     render({ :template => "director_templates/show_actor" })
   end
+
+  def show_movie
+    the_id = params.fetch("the_id")
+    @the_movie = Movie.where({ :id => the_id }).at(0)
+    render({ :template => "director_templates/show_movie" })
+  end
 end
