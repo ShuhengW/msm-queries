@@ -25,7 +25,7 @@ class DirectorsController < ApplicationController
   end
 
   def show
-    the_id = params.fetch("directors_id")
+    the_id = params.fetch("the_id")
     @the_director = Director.where({ :id => the_id }).first
     render({ :template => "director_templates/show" })
   end
