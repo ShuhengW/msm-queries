@@ -25,20 +25,20 @@ class DirectorsController < ApplicationController
   end
 
   def show
-    the_id = params.fetch("the_id")
+    the_id = params.fetch("directors_id")
     @the_director = Director.where({ :id => the_id }).at(0)
     render({ :template => "director_templates/show" })
   end
 
   def show_actor
-    the_id = params.fetch("the_id")
+    the_id = params.fetch("actors_id")
     @the_actor = Actor.where({ :id => the_id }).at(0)
     render({ :template => "director_templates/show_actor" })
   end
 
   def show_movie
-    the_id = params.fetch("the_id")
-    @the_movie = Movie.where({ :id => the_id }).at(0)
+    the_id = params.fetch("movies_id")
+    @the_movie = Movie.where({ :id => movies_id }).at(0)
     render({ :template => "director_templates/show_movie" })
   end
 end
